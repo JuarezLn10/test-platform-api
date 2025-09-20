@@ -23,6 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="IAM\Domain\Model\ValueObjects\" />
       <Folder Include="Shared\Infrastructure\Persistence\EFC\" />
     </ItemGroup>
 
