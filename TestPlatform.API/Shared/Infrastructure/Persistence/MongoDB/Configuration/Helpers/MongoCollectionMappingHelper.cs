@@ -9,7 +9,7 @@ namespace TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configurati
 ///     It provides a method to register class maps with camelCase and pluralized names
 ///     It can be used in the application startup to register all necessary class maps
 /// </summary>
-public static class MongoMappingHelper
+public static class MongoCollectionMappingHelper
 {
     /// <summary>
     ///     This method registers a class map for the specified type T

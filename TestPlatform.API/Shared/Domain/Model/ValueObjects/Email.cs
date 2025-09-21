@@ -1,22 +1,22 @@
 ﻿namespace TestPlatform.API.Shared.Domain.Model.ValueObjects;
 
 /// <summary>
-/// This record class serves as a Value Object for an email address.
+///     This record class serves as a Value Object for an email address.
 /// </summary>
 public partial record Email()
 {
     /// <summary>
-    /// This is the value of the Email Value Object.
+    ///     This is the value of the Email Value Object.
     /// </summary>
     private string Value { get; } = string.Empty;
     
     /// <summary>
-    /// Default constructor for the Email Value Object.
-    /// It is used to validate if the provided value is a non-empty string and follows a basic email format.
+    ///     Default constructor for the Email Value Object.
+    ///     It is used to validate if the provided value is a non-empty string and follows a basic email format.
     /// </summary>
     /// <param name="value">The value pf the email</param>
     /// <exception cref="ArgumentException">
-    /// Email must be a non-empty string.
+    ///     Email must be a non-empty string.
     /// </exception>
     public Email(string value) : this()
     {
@@ -35,11 +35,16 @@ public partial record Email()
     }
 
     /// <summary>
-    /// Defines a regex for basic email validation.
+    ///     Defines a regex for basic email validation.
     /// </summary>
     /// <returns>
-    /// Regex that matches a basic email format.
+    ///     Regex that matches a basic email format.
     /// </returns>
     [System.Text.RegularExpressions.GeneratedRegex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$")]
     private static partial System.Text.RegularExpressions.Regex MyRegex();
+    
+    /// <summary>
+    ///     Method to get the value of the Email Value Object.
+    /// </summary>
+    public string GetValue => Value;
 }

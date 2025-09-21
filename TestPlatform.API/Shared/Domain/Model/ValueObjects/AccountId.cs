@@ -25,4 +25,9 @@ public record AccountId()
         
         Id = id;
     }
+    
+    /// <summary>
+    ///     This method returns the string representation of the AccountId Value Object.
+    /// </summary>
+    public string GetId => Id;
 }
