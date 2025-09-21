@@ -47,6 +47,9 @@ builder.Services.AddSwaggerGen(o =>
 
 // Dependency Injection
 
+// Registers the value object mapping for all contexts
+GlobalMongoMappingHelper.RegisterAllBoundedContextMappings();
+
 // Registers the MongoDB client as a singleton service
 builder.Services.AddSingleton<IMongoClient>(sp =>
 {
