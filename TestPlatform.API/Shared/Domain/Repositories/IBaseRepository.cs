@@ -1,4 +1,6 @@
-﻿namespace TestPlatform.API.Shared.Domain.Repositories;
+﻿using TestPlatform.API.Shared.Domain.Model.ValueObjects;
+
+namespace TestPlatform.API.Shared.Domain.Repositories;
 
 /// <summary>
 ///     Base repository interface for all repositories
@@ -7,7 +9,7 @@
 ///     This interface defines the basic CRUD operations for all repositories
 /// </remarks>
 /// <typeparam name="TEntity">The Entity Type</typeparam>
-public interface IBaseRepository<TEntity> where TEntity : class
+public interface IBaseRepository<TEntity> where TEntity : IEntity
 {
     /// <summary>
     ///     Adds an entity to the repository
@@ -25,14 +27,15 @@ public interface IBaseRepository<TEntity> where TEntity : class
     /// <summary>
     ///     Updates the entity
     /// </summary>
-    /// <param name="entity">The entity object to update</param>
-    Task UpdateAsync(TEntity entity);
+    /// <param name="id">The identifier of the entity object to update</param>
+    /// <param name="entity">The entity object to replace the existing one</param>
+    Task UpdateAsync(string id, TEntity entity);
     
     /// <summary>
     ///     Removes the entity
     /// </summary>
-    /// <param name="entity">The entity objects to remove</param>
-    Task DeleteAsync(TEntity entity);
+    /// <param name="id">The identifier of the entity to remove</param>
+    Task DeleteAsync(string id);
     
     /// <summary>
     ///     Get All entities
