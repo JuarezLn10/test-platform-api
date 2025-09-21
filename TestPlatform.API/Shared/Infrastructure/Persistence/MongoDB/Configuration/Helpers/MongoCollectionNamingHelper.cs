@@ -23,7 +23,7 @@ public static class MongoCollectionNamingHelper
         var baseName = typeof(T).Name;
 
         // Applies pluralization and camel case conversion to the collection name
-        var collectionName = baseName.ToPlural().ToCamelCase();
+        var collectionName = baseName.ToPlural().ToSnakeCase();
 
         // Returns the collection with the modified name
         return database.GetCollection<T>(collectionName);

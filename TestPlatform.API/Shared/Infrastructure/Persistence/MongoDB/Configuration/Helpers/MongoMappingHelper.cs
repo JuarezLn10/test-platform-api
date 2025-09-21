@@ -26,7 +26,7 @@ public static class MongoMappingHelper
                 cm.AutoMap();
 
                 // Pluralizar y camelCase para nombre de clase, útil si usas esto para obtener colecciones
-                var collectionName = typeof(T).Name.ToPlural().ToCamelCase();
+                var collectionName = typeof(T).Name.ToPlural().ToSnakeCase();
 
                 // Cambiar el nombre de la clase en el mapeo (no es obligatorio, pero puede ayudar)
                 cm.SetDiscriminator(collectionName);
