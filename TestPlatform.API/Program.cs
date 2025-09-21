@@ -1,4 +1,5 @@
 using Microsoft.OpenApi.Models;
+using MongoDB.Driver;
 using TestPlatform.API.Shared.Domain.Repositories;
 using TestPlatform.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration;
@@ -45,6 +46,14 @@ builder.Services.AddSwaggerGen(o =>
 });
 
 // Dependency Injection
+
+// Registers the MongoDB client as a singleton service
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var config = sp.GetRequiredService<IConfiguration>();
+    var connectionString = config["MongoDB:ConnectionString"];
+    return new MongoClient(connectionString);
+});
 
 // Add service por MongoDB client
 builder.Services.AddSingleton<AppDbContext>();
