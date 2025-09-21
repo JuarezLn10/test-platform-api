@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using TestPlatform.API.IAM.Domain.Model.Commands;
 using TestPlatform.API.Shared.Domain.Model.ValueObjects;
 
 namespace TestPlatform.API.IAM.Domain.Model.Aggregates;
@@ -27,6 +28,12 @@ public class User(Email userName, string password) : IEntity
     ///     The password of the user.
     /// </summary>
     public string Password { get; private set; } = password;
-    
-    
+
+    /// <summary>
+    ///     Method to create a user from a command
+    /// </summary>
+    /// <param name="command">
+    ///     The command containing the details for the user to be created.
+    /// </param>
+    public User(CreateUserCommand command) : this(command.UserName, command.Password) { }
 }
