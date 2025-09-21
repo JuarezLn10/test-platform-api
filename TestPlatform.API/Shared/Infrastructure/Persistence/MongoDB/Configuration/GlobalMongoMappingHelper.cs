@@ -1,4 +1,5 @@
-﻿using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Helpers;
+﻿using TestPlatform.API.IAM.Infrastructure.Persistence.MongoDB.Configuration.MappingHelper;
+using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Helpers;
 using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.MappingHelper;
 
 namespace TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration;
@@ -21,7 +22,7 @@ public static class GlobalMongoMappingHelper
         SharedMappingHelper.RegisterSharedMappings();
         
         // IAM Bounded Context
-        
+        AuthenticationMappingHelper.RegisterAuthenticationMappings();
         
         _initialized = true;
     }
