@@ -17,7 +17,7 @@ namespace TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Repositorie
 public class BaseRepository<T>(AppDbContext context) : IBaseRepository<T> where T : IEntity
 {
     /// <summary>
-    ///     The MongoDB collection for the entity type T
+    ///    The MongoDB collection for the entity type T
     /// </summary>
     private readonly IMongoCollection<T> _collection = context.GetCollection<T>();
 
@@ -44,7 +44,12 @@ public class BaseRepository<T>(AppDbContext context) : IBaseRepository<T> where 
     /// <summary>
     ///     Updates the entity
     /// </summary>
-    /// <param name="entity">The entity object to update</param>
+    /// <param name="id">
+    ///     The identifier of the entity to update
+    /// </param>
+    /// <param name="entity">
+    ///     The entity object to update
+    /// </param>
     public async Task UpdateAsync(string id, T entity)
     {
         var objectId = ObjectId.Parse(id);

@@ -1,5 +1,5 @@
 ﻿using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Helpers;
-using MongoMappingHelper = TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.MappingHelper.MongoMappingHelper;
+using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.MappingHelper;
 
 namespace TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration;
 
@@ -18,7 +18,7 @@ public static class GlobalMongoMappingHelper
         if (_initialized) return;
         
         // Shared Bounded Context
-        MongoMappingHelper.RegisterSharedMappings();
+        SharedMappingHelper.RegisterSharedMappings();
         
         // IAM Bounded Context
         

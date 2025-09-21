@@ -8,7 +8,7 @@ namespace TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configurati
 ///     This class provides helper methods for MongoDB mapping configurations.
 ///     It allows the mapping for value objects that are used inside a class.
 /// </summary>
-public static class MongoMappingHelper
+public static class SharedMappingHelper
 {
     private static bool _initialized = false;
     
