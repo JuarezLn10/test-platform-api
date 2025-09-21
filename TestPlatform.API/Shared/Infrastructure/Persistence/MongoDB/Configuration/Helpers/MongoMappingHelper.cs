@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization;
-using TestPlatform.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
+using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Extensions;
 
-namespace TestPlatform.API.Shared.Infrastructure.Persistence.EFC.Configuration;
+namespace TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Helpers;
 
 /// <summary>
 ///     First option for mapping classes to MongoDB collections with camelCase and pluralized names

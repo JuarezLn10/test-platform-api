@@ -1,4 +1,5 @@
-using TestPlatform.API.Shared.Infrastructure.Persistence.EFC.Configuration;
+using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration;
+using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 MongoFieldNamingHelper.UseCamelCaseNamingConvention();
 
 // Add services to the container.
+
+// Add service por MongoDB client
+builder.Services.AddSingleton<AppDbContext>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

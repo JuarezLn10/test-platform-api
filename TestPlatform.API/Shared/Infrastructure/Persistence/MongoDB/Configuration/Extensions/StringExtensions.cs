@@ -1,6 +1,6 @@
 ﻿using Humanizer;
 
-namespace TestPlatform.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
+namespace TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Extensions;
 
 /// <summary>
 ///     String extensions

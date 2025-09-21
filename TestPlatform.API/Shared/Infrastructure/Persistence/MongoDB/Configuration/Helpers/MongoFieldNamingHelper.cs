@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Conventions;
 
-namespace TestPlatform.API.Shared.Infrastructure.Persistence.EFC.Configuration;
+namespace TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Helpers;
 
 /// <summary>
 ///     Convention Pack extensions
