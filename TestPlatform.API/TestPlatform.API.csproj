@@ -17,4 +17,9 @@
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="IAM\Interfaces\REST\Controllers\" />
+      <Folder Include="IAM\Interfaces\REST\Assemblers\" />
+    </ItemGroup>
+
 </Project>
