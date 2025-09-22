@@ -17,8 +17,4 @@
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="IAM\Application\Internal\QueryServices\" />
-    </ItemGroup>
-
 </Project>
