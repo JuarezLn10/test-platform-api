@@ -1,8 +1,12 @@
-﻿namespace TestPlatform.API.Shared.Domain.Model.ValueObjects;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Mapping;
+
+namespace TestPlatform.API.Shared.Domain.Model.ValueObjects;
 
 /// <summary>
 ///     This record class serves as a Value Object for an email address.
 /// </summary>
+[BsonSerializer(typeof(EmailSerializer))]
 public partial record Email()
 {
     /// <summary>
