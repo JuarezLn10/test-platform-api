@@ -19,7 +19,6 @@
 
     <ItemGroup>
       <Folder Include="IAM\Interfaces\REST\Controllers\" />
-      <Folder Include="IAM\Interfaces\REST\Assemblers\" />
     </ItemGroup>
 
 </Project>
