@@ -1,6 +1,13 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
+using TestPlatform.API.IAM.Application.Internal.CommandServices;
+using TestPlatform.API.IAM.Application.Internal.QueryServices;
+using TestPlatform.API.IAM.Domain.Repositories;
+using TestPlatform.API.IAM.Domain.Services;
+using TestPlatform.API.IAM.Infrastructure.Persistence.MongoDB.Repositories;
 using TestPlatform.API.Shared.Domain.Repositories;
+using TestPlatform.API.Shared.Infrastructure.Converters.JSON;
 using TestPlatform.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration;
 using TestPlatform.API.Shared.Infrastructure.Persistence.MongoDB.Configuration.Helpers;
@@ -43,6 +50,9 @@ builder.Services.AddSwaggerGen(o =>
             Url  = new Uri("https://www.apache.org/licenses/LICENSE-2.0.html")
         }
     });
+    
+    // Enable Annotations for Swagger
+    o.EnableAnnotations();
 });
 
 // Dependency Injection
@@ -61,8 +71,18 @@ builder.Services.AddSingleton<IMongoClient>(sp =>
 // Add service por MongoDB client
 builder.Services.AddSingleton<AppDbContext>();
 
+// Bounded Context IAM
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+builder.Services.AddScoped<IUserQueryService, UserQueryService>();
+
 // Bounded Context Shared
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new EmailJsonConverter());
+});
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

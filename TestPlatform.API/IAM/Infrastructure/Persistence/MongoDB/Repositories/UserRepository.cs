@@ -31,6 +31,7 @@ public class UserRepository (AppDbContext context) : BaseRepository<User>(contex
     /// </returns>
     public async Task<bool> ExistsByEmailAsync(Email email)
     {
-        return await _collection.Find(x => x.UserName == email).AnyAsync();
+        var filter = Builders<User>.Filter.Eq("UserName", email.GetValue);
+        return await _collection.Find(filter).AnyAsync();
     }
 }

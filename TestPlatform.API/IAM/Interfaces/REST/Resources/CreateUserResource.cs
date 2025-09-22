@@ -6,6 +6,6 @@ namespace TestPlatform.API.IAM.Interfaces.REST.Resources;
 ///     Resource for creating a new user
 /// </summary>
 public record CreateUserResource(
-        Email UserName,
+        string UserName,
         string Password
     );

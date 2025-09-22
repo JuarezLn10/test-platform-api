@@ -27,7 +27,7 @@ public class UserCommandService(
         // Verifies that the username is not already taken.
         if (await userRepository.ExistsByEmailAsync(command.UserName))
         {
-            throw new ArgumentException($"User with username: {command.UserName} tried to create a new account, but that username is already taken.");
+            throw new ArgumentException($"User with username: {command.UserName.GetValue} tried to create a new account, but that username is already taken.");
         }
 
         // Creates the user with the command

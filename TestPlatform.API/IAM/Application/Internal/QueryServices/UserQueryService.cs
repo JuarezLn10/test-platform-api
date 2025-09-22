@@ -25,4 +25,18 @@ public class UserQueryService(
     {
         return await userRepository.GetAllAsync();
     }
+
+    /// <summary>
+    ///     Query handler for GetUserByIdQuery
+    /// </summary>
+    /// <param name="query">
+    ///     The query object containing the user ID to fetch.
+    /// </param>
+    /// <returns>
+    ///     The user with the specified ID, or null if not found.
+    /// </returns>
+    public async Task<User?> Handle(GetUserByIdQuery query)
+    {
+        return await userRepository.FindByIdAsync(query.UserId);
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using TestPlatform.API.IAM.Domain.Model.Commands;
 using TestPlatform.API.IAM.Interfaces.REST.Resources;
+using TestPlatform.API.Shared.Domain.Model.ValueObjects;
 
 namespace TestPlatform.API.IAM.Interfaces.REST.Assemblers;
 
@@ -20,7 +21,7 @@ public static class CreateUserCommandFromResourceAssembler
     public static CreateUserCommand ToCommandFromResource(CreateUserResource resource)
     {
         return new CreateUserCommand(
-                resource.UserName,
+                new Email(resource.UserName),
                 resource.Password
             );
     }

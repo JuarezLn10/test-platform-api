@@ -18,7 +18,7 @@ public partial record Email()
     /// <exception cref="ArgumentException">
     ///     Email must be a non-empty string.
     /// </exception>
-    public Email(string value) : this()
+    public Email(string? value) : this()
     {
         if (value == null || value.Trim().Length == 0)
         {
